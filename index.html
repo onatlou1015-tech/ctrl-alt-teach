@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Computer · Ethics &amp; Code Hub</title>
-    <!-- Font Awesome (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ----- elegant dark theme (not too dark) ----- */
         * {
             margin: 0;
             padding: 0;
@@ -15,95 +13,118 @@
         }
 
         body {
-            background: #12161e;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            padding: 2rem 1.5rem;
-            color: #eef3f9;
-            line-height: 1.5;
+            background: #e8e4dd;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            padding: 2rem 1rem;
+            color: #1a1a1a;
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .container {
-            max-width: 1440px;
+        .magazine {
+            max-width: 1100px;
             width: 100%;
-            margin: 0 auto;
+            background: #faf8f5;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.06);
+            padding: 3rem 3.5rem;
+            position: relative;
         }
 
-        /* ----- header ----- */
-        .main-header {
+        .magazine::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: #1a1a1a;
+        }
+
+        .masthead {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px double #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .masthead .issue {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 0.8rem;
+        }
+
+        .masthead h1 {
+            font-family: 'Georgia', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .masthead .tagline {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #555;
+            letter-spacing: 0.5px;
+        }
+
+        .masthead .rule {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .masthead .rule::before,
+        .masthead .rule::after {
+            content: "";
+            width: 60px;
+            height: 1px;
+            background: #bbb;
+        }
+
+        .clock-bar {
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid #2a3346;
-        }
-
-        .main-header h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            color: #e8effa;
-        }
-
-        .main-header h1 i {
-            color: #6d9bf0;
-            font-size: 2.2rem;
-        }
-
-        .header-badge {
-            background: #1f283a;
-            padding: 0.4rem 1.3rem;
-            border-radius: 40px;
-            font-weight: 450;
-            color: #b8cef0;
-            border: 1px solid #2f3b52;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.95rem;
-        }
-
-        .header-badge i {
-            color: #6d9bf0;
-        }
-
-        /* ----- DIGITAL CLOCK ----- */
-        .clock-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #ddd;
             margin-bottom: 2rem;
-            padding: 0.8rem 1.5rem;
-            background: #1a212e;
-            border-radius: 60px;
-            border: 1px solid #2d384e;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #666;
         }
 
         .clock-display {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #6d9bf0;
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(109, 155, 240, 0.2);
+            gap: 0.3rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 1px;
         }
 
         .clock-display .time-separator {
-            color: #4a6a8a;
+            color: #bbb;
             animation: blink 1s step-end infinite;
         }
 
@@ -113,403 +134,318 @@
         }
 
         .clock-display .time-label {
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: #7a9aba;
+            font-size: 0.55rem;
+            color: #888;
+            margin-left: 0.2rem;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-left: 0.3rem;
         }
 
         .clock-date {
-            font-size: 0.85rem;
-            color: #8aaac8;
-            font-weight: 400;
-            border-left: 1px solid #2d384e;
-            padding-left: 1.2rem;
+            color: #888;
         }
 
         .clock-date i {
-            color: #6d9bf0;
-            margin-right: 0.4rem;
+            margin-right: 0.3rem;
+            color: #bbb;
         }
 
-        @media (max-width: 600px) {
-            .clock-display {
-                font-size: 1.6rem;
-            }
-            .clock-date {
-                font-size: 0.7rem;
-                padding-left: 0.8rem;
-            }
-            .clock-container {
-                padding: 0.6rem 1rem;
-                gap: 0.8rem;
-            }
-        }
-
-        /* ----- semester grid (2 columns) ----- */
-        .semester-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-top: 0.5rem;
+            gap: 0;
         }
 
         @media (max-width: 820px) {
-            .semester-grid {
-                grid-template-columns: 1fr;
-                gap: 2.2rem;
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        .feature-column {
+            padding: 0 1.5rem;
+        }
+
+        .feature-column:first-child {
+            padding-left: 0;
+            padding-right: 1.5rem;
+            border-right: 1px solid #ddd;
+        }
+
+        .feature-column:last-child {
+            padding-left: 1.5rem;
+            padding-right: 0;
+        }
+
+        @media (max-width: 820px) {
+            .feature-column:first-child {
+                padding: 0;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 2rem;
+                margin-bottom: 2rem;
+            }
+            .feature-column:last-child {
+                padding: 0;
             }
         }
 
-        /* ----- semester card (glass‑like) ----- */
-        .semester-card {
-            background: #1a212e;
-            border-radius: 36px;
-            padding: 1.8rem 1.8rem 2.2rem;
-            border: 1px solid #2d384e;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(2px);
-            transition: 0.2s ease;
-        }
-
-        .semester-card:hover {
-            border-color: #4b6180;
-            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
-        }
-
-        .semester-title {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 1.6rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 2px solid #2a3449;
-            color: #dce6f5;
-        }
-
-        .semester-title i {
-            color: #6d9bf0;
-            font-size: 1.7rem;
-            width: 2.2rem;
-            text-align: center;
-        }
-
-        .semester-tag {
-            background: #242f45;
-            padding: 0.2rem 1.1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 450;
-            color: #b0caf0;
-            margin-left: auto;
-            white-space: nowrap;
-            border: 1px solid #37445e;
-        }
-
-        /* ----- grade grid (M.1 – M.6) as cards in a GRID (2 columns) ----- */
-        .grade-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.9rem;
-        }
-
-        @media (max-width: 540px) {
-            .grade-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ----- VIBRANT COLORS ----- */
-        .grade-card {
-            border-radius: 20px;
-            padding: 0.9rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            transition: 0.15s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            flex-wrap: wrap;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .grade-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            filter: brightness(1.08);
-        }
-
-        /* ----- M.1 — Vibrant Blue ----- */
-        .grade-m1 {
-            background: #1a5a9a;
-            border-color: #4a8ad0;
-        }
-        .grade-m1 .grade-label {
-            background: #0a3a6a;
-            border-color: #5a9ae0;
-            color: #ffffff;
-        }
-
-        /* ----- M.2 — Vibrant Green ----- */
-        .grade-m2 {
-            background: #1a8a4a;
-            border-color: #4ac080;
-        }
-        .grade-m2 .grade-label {
-            background: #0a5a2a;
-            border-color: #5ad090;
-            color: #ffffff;
-        }
-
-        /* ----- M.3 — Vibrant Orange ----- */
-        .grade-m3 {
-            background: #c07020;
-            border-color: #e89840;
-        }
-        .grade-m3 .grade-label {
-            background: #8a4a10;
-            border-color: #f0a850;
-            color: #ffffff;
-        }
-
-        /* ----- M.4 — Vibrant Purple ----- */
-        .grade-m4 {
-            background: #6a3a9a;
-            border-color: #9a5ad0;
-        }
-        .grade-m4 .grade-label {
-            background: #4a1a6a;
-            border-color: #aa6ae0;
-            color: #ffffff;
-        }
-
-        /* ----- M.5 — Vibrant Teal ----- */
-        .grade-m5 {
-            background: #1a7a8a;
-            border-color: #4abac8;
-        }
-        .grade-m5 .grade-label {
-            background: #0a4a5a;
-            border-color: #5acad8;
-            color: #ffffff;
-        }
-
-        /* ----- M.6 — Vibrant Red/Crimson ----- */
-        .grade-m6 {
-            background: #b03030;
-            border-color: #e05050;
-        }
-        .grade-m6 .grade-label {
-            background: #7a1a1a;
-            border-color: #f06060;
-            color: #ffffff;
-        }
-
-        .grade-label {
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 0.25rem 0.9rem;
-            border-radius: 40px;
-            min-width: 2.8rem;
-            text-align: center;
-            letter-spacing: 0.2px;
-            flex-shrink: 0;
-            border: 1px solid;
-        }
-
-        /* ---- INDICATOR SECTION ---- */
-        .indicator-area {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            flex-shrink: 0;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.2rem 0.7rem;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
-        }
-
-        .indicator-area i {
-            font-size: 0.75rem;
-            color: #ffffff;
-        }
-
-        .indicator-area .indicator-text {
-            font-size: 0.7rem;
-            color: #e8f0ff;
-            font-weight: 400;
-            letter-spacing: 0.2px;
-        }
-
-        .indicator-badge {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.1rem 0.6rem;
-            border-radius: 30px;
-            font-size: 0.6rem;
-            font-weight: 500;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        /* ---- CODE SECTION ---- */
-        .code-area {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            flex: 1;
-            min-width: 100px;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
-        }
-
-        .code-area i {
-            font-size: 0.7rem;
-            color: #ffffff;
-        }
-
-        .code-area .code-text {
-            font-size: 0.7rem;
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            color: #e8f0ff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .code-area .code-placeholder {
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 350;
+        .section-kicker {
+            font-family: 'Helvetica', 'Arial', sans-serif;
             font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c0392b;
+            margin-bottom: 0.6rem;
         }
 
-        /* ----- ethics note inside semester card ----- */
-        .ethics-note {
-            margin-top: 1.2rem;
-            padding-top: 0.9rem;
-            border-top: 1px solid #2a3449;
+        .section-title {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+            line-height: 1.1;
+        }
+
+        .section-subtitle {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .drop-cap::first-letter {
+            font-family: 'Georgia', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            float: left;
+            line-height: 0.85;
+            margin-right: 0.6rem;
+            margin-top: 0.2rem;
+            color: #1a1a1a;
+        }
+
+        .intro-text {
+            font-family: 'Georgia', serif;
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .entry-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .entry-number {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ddd;
+            line-height: 1;
+            min-width: 2rem;
+            text-align: right;
+        }
+
+        .entry-content {
+            flex: 1;
+        }
+
+        .entry-code {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #c0392b;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        .entry-title {
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .entry-meta {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 0.5rem 1rem;
-            font-size: 0.8rem;
-            color: #b0c6e6;
+            gap: 0.6rem;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.65rem;
+            color: #888;
         }
 
-        .ethics-note i {
-            color: #6d9bf0;
-            width: 1.2rem;
-        }
-
-        .ethics-tag {
-            background: #1f2a40;
-            padding: 0.2rem 0.9rem;
-            border-radius: 30px;
-            font-weight: 450;
+        .entry-meta .status {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            border: 1px solid #35445e;
+            gap: 0.25rem;
         }
 
-        /* ----- footer & extra context ----- */
-        .footer-context {
-            margin-top: 3rem;
+        .entry-meta .status i {
+            font-size: 0.5rem;
+        }
+
+        .status-ready i { color: #27ae60; }
+        .status-draft i { color: #f39c12; }
+        .status-review i { color: #3498db; }
+
+        .entry-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px solid #1a1a1a;
+            font-weight: 500;
+        }
+
+        .entry-link:hover {
+            color: #c0392b;
+            border-bottom-color: #c0392b;
+        }
+
+        .entry-placeholder {
+            color: #bbb;
+            font-style: italic;
+        }
+
+        .pull-quote {
+            margin-top: 1.5rem;
+            padding: 1.2rem 0;
+            border-top: 3px solid #1a1a1a;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .pull-quote p {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .pull-quote .attribution {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-top: 0.5rem;
+        }
+
+        .magazine-footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 3px double #1a1a1a;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem 1.5rem;
-            border-top: 1px solid #2a3346;
-            padding-top: 2rem;
-        }
-
-        .footer-badge-group {
-            display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem 1.8rem;
-            color: #b6cbe8;
-            font-size: 0.9rem;
+            gap: 1rem;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #999;
         }
 
-        .footer-badge-group i {
-            color: #6d9bf0;
-            margin-right: 0.3rem;
+        .footer-nav {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .inline-code {
-            background: #1f283c;
-            padding: 0.1rem 0.8rem;
-            border-radius: 30px;
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: #b8cef0;
-            border: 1px solid #36455e;
-        }
-
-        .topic-pill {
-            background: #1f2840;
-            padding: 0.3rem 1.4rem;
-            border-radius: 60px;
-            border: 1px solid #384b6a;
+        .footer-nav span {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            font-size: 0.85rem;
-            color: #ccdefa;
+            gap: 0.3rem;
         }
 
-        .topic-pill i {
-            color: #6d9bf0;
+        .footer-nav i {
+            font-size: 0.55rem;
+            color: #ccc;
         }
 
-        /* small adjustments */
+        .footer-credits {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .footer-credits i {
+            font-size: 0.8rem;
+            color: #bbb;
+            transition: color 0.2s;
+        }
+
+        .footer-credits i:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 600px) {
+            .magazine {
+                padding: 2rem 1.5rem;
+            }
+            .masthead h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .clock-bar {
+                flex-direction: column;
+                gap: 0.4rem;
+                align-items: flex-start;
+            }
+        }
+
         @media (max-width: 480px) {
-            .main-header h1 {
-                font-size: 1.6rem;
+            .masthead h1 {
+                font-size: 2rem;
             }
-            .semester-title {
-                font-size: 1.4rem;
+            .entry-number {
+                font-size: 1.3rem;
+                min-width: 1.5rem;
             }
-            .grade-card {
-                padding: 0.7rem 0.8rem;
-                gap: 0.5rem;
-            }
-            .indicator-area {
-                padding: 0.1rem 0.5rem;
-            }
-            .code-area {
-                min-width: 80px;
-                padding: 0.1rem 0.6rem;
+            .entry-title {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="magazine">
 
-        <!-- header -->
-        <header class="main-header">
-            <h1>
-                <i class="fas fa-laptop-code"></i>
-                <span>Computer Lessons</span>
-            </h1>
-            <div class="header-badge">
-                <i class="fas fa-graduation-cap"></i> Mathayom 1–6
-                <i class="fas fa-circle" style="font-size: 0.3rem; margin: 0 0.3rem; color: #4d6990;"></i>
-                <i class="fas fa-balance-scale"></i> ethics
-            </div>
+        <header class="masthead">
+            <div class="issue">Issue No. 01 &nbsp;·&nbsp; Academic Year 2026</div>
+            <h1>COMPUTER</h1>
+            <div class="tagline">Ethics, Code &amp; Digital Citizenship</div>
+            <div class="rule">Mathayom 1 – 6 &nbsp;·&nbsp; Two Semesters</div>
         </header>
 
-        <!-- ========== DIGITAL CLOCK ========== -->
-        <div class="clock-container">
+        <div class="clock-bar">
             <div class="clock-display" id="clockDisplay">
                 <span id="hours">00</span>
                 <span class="time-separator">:</span>
@@ -519,253 +455,241 @@
                 <span class="time-label" id="ampm">AM</span>
             </div>
             <div class="clock-date" id="dateDisplay">
-                <i class="fas fa-calendar-day"></i>
+                <i class="far fa-calendar"></i>
                 <span id="dateText">January 1, 2026</span>
             </div>
         </div>
 
-        <!-- semester grid -->
-        <div class="semester-grid">
+        <div class="feature-grid">
 
-            <!-- ========== SEMESTER 1 ========== -->
-            <section class="semester-card" aria-label="First semester – computer subject">
-                <div class="semester-title">
-                    <i class="fas fa-book-open"></i> Semester 1
-                    <span class="semester-tag"><i class="far fa-clock"></i> M.1–M.6</span>
-                </div>
+            <div class="feature-column">
+                <div class="section-kicker">First Term</div>
+                <h2 class="section-title">Semester 1</h2>
+                <p class="section-subtitle">Foundations of computing, privacy &amp; responsible code</p>
 
-                <!-- grade cards with vibrant colors -->
-                <div class="grade-grid">
-                    <div class="grade-card grade-m1">
-                        <span class="grade-label">M.1 21113</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Ready</span>
-                        </div>
-                        <div class="code-area">
-    <i class="fas fa-link"></i>
-    <a href="semester1-21113.html" target="_blank" style="color: #e8f0ff; text-decoration: none; font-size: 0.7rem; font-family: 'SF Mono', 'Fira Code', monospace;">
-        Computer Science 1
-    </a>
-</div>
-                    </div>
-                    <div class="grade-card grade-m2">
-                        <span class="grade-label">M.2 22113</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Draft</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">Computer Science 2</span>
-                        </div>
-                    </div>
-                    <div class="grade-card grade-m3">
-                        <span class="grade-label">M.3 23113</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Review</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">Computer Science 3</span>
-                        </div>
-                    </div>
-                    <div class="grade-card grade-m4">
-                        <span class="grade-label">M.4 31291</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Ready</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">Information Technology 1</span>
-                        </div>
-                    </div>
-                    <div class="grade-card grade-m5">
-                        <span class="grade-label">M.5 30111</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Draft</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">Computer Science 1</span>
-                        </div>
-                    </div>
-                    <div class="grade-card grade-m6">
-                        <span class="grade-label">M.6 33291</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Ready</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">Information Technology 5</span>
-                        </div>
-                    </div>
-                </div>
+                <p class="intro-text drop-cap">Every great developer begins with a single line of code. This semester introduces the ethical frameworks and technical skills that shape the digital citizens of tomorrow.</p>
 
-                <div class="ethics-note">
-                    <span class="ethics-tag"><i class="fas fa-shield-alt"></i> ethics · privacy</span>
-                    <span><i class="fas fa-code"></i> coding principles</span>
-                    <span><i class="fas fa-users"></i> digital citizenship</span>
-                </div>
-            </section>
+                <div class="entry-list">
 
-            <!-- ========== SEMESTER 2 ========== -->
-            <section class="semester-card" aria-label="Second semester – computer subject">
-                <div class="semester-title">
-                    <i class="fas fa-book-reader"></i> Semester 2
-                    <span class="semester-tag"><i class="far fa-clock"></i> M.1–M.6</span>
-                </div>
+                    <div class="entry">
+                        <div class="entry-number">01</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.1 · 21113</div>
+                            <div class="entry-title">
+                                <a href="semester1-21113.html" target="_blank" class="entry-link">
+                                    Computer Science 1 <i class="fas fa-arrow-right" style="font-size: 0.6rem;"></i>
+                                </a>
+                            </div>
+                            <div class="entry-meta">
+                                <span class="status status-ready"><i class="fas fa-circle"></i> Ready</span>
+                                <span>·</span>
+                                <span>Intro to computing</span>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- SAME COLORS as semester 1 -->
-                <div class="grade-grid">
-                    <div class="grade-card grade-m1">
-                        <span class="grade-label">M.1</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Ready</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">add code</span>
+                    <div class="entry">
+                        <div class="entry-number">02</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.2 · 22113</div>
+                            <div class="entry-title">Computer Science 2</div>
+                            <div class="entry-meta">
+                                <span class="status status-draft"><i class="fas fa-circle"></i> Draft</span>
+                                <span>·</span>
+                                <span>Algorithms &amp; logic</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="grade-card grade-m2">
-                        <span class="grade-label">M.2</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Draft</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">add code</span>
-                        </div>
-                    </div>
-                    <div class="grade-card grade-m3">
-                        <span class="grade-label">M.3</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Review</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">add code</span>
+
+                    <div class="entry">
+                        <div class="entry-number">03</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.3 · 23113</div>
+                            <div class="entry-title">Computer Science 3</div>
+                            <div class="entry-meta">
+                                <span class="status status-review"><i class="fas fa-circle"></i> Review</span>
+                                <span>·</span>
+                                <span>Data &amp; information</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="grade-card grade-m4">
-                        <span class="grade-label">M.4</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Ready</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">add code</span>
-                        </div>
-                    </div>
-                    <div class="grade-card grade-m5">
-                        <span class="grade-label">M.5</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Draft</span>
-                        </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">add code</span>
+
+                    <div class="entry">
+                        <div class="entry-number">04</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.4 · 31291</div>
+                            <div class="entry-title">Information Technology 1</div>
+                            <div class="entry-meta">
+                                <span class="status status-ready"><i class="fas fa-circle"></i> Ready</span>
+                                <span>·</span>
+                                <span>Systems &amp; networks</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="grade-card grade-m6">
-                        <span class="grade-label">M.6</span>
-                        <div class="indicator-area">
-                            <i class="fas fa-flag"></i>
-                            <span class="indicator-text">Status</span>
-                            <span class="indicator-badge">Ready</span>
+
+                    <div class="entry">
+                        <div class="entry-number">05</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.5 · 30111</div>
+                            <div class="entry-title">Computer Science 1</div>
+                            <div class="entry-meta">
+                                <span class="status status-draft"><i class="fas fa-circle"></i> Draft</span>
+                                <span>·</span>
+                                <span>Advanced programming</span>
+                            </div>
                         </div>
-                        <div class="code-area">
-                            <i class="fas fa-code"></i>
-                            <span class="code-text code-placeholder">add code</span>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-number">06</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.6 · 33291</div>
+                            <div class="entry-title">Information Technology 5</div>
+                            <div class="entry-meta">
+                                <span class="status status-ready"><i class="fas fa-circle"></i> Ready</span>
+                                <span>·</span>
+                                <span>Capstone &amp; ethics</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="ethics-note">
-                    <span class="ethics-tag"><i class="fas fa-gavel"></i> ethics · law</span>
-                    <span><i class="fas fa-brain"></i> algorithmic thinking</span>
-                    <span><i class="fas fa-globe"></i> social impact</span>
+                <div class="pull-quote">
+                    <p>“The real question is not what technology can do, but what it should do.”</p>
+                    <div class="attribution">— Editorial Note</div>
                 </div>
-            </section>
-        </div>
-
-        <!-- bottom: elegant context + placeholder reminder -->
-        <div class="footer-context">
-            <div class="footer-badge-group">
-                <span><i class="fas fa-balance-scale"></i> coding ethics · privacy · IP</span>
-                <span><i class="fas fa-folder-open"></i> all semesters · M.1–M.6</span>
-                <span><i class="fas fa-edit"></i> edit <span class="inline-code">indicator</span> &amp; <span class="inline-code">code</span> fields</span>
             </div>
-            <div class="topic-pill">
-                <i class="fas fa-info-circle"></i>
-                <span>Computer subject · ethics &amp; coding</span>
+
+            <div class="feature-column">
+                <div class="section-kicker">Second Term</div>
+                <h2 class="section-title">Semester 2</h2>
+                <p class="section-subtitle">Advanced topics, law, and the social impact of code</p>
+
+                <p class="intro-text drop-cap">Building on first-term foundations, students explore the deeper questions of algorithmic thinking, intellectual property, and technology's role in society.</p>
+
+                <div class="entry-list">
+
+                    <div class="entry">
+                        <div class="entry-number">07</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.1</div>
+                            <div class="entry-title">Computer Fundamentals</div>
+                            <div class="entry-meta">
+                                <span class="status status-ready"><i class="fas fa-circle"></i> Ready</span>
+                                <span>·</span>
+                                <span>Digital literacy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-number">08</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.2</div>
+                            <div class="entry-title">Creative Computing</div>
+                            <div class="entry-meta">
+                                <span class="status status-draft"><i class="fas fa-circle"></i> Draft</span>
+                                <span>·</span>
+                                <span>Media &amp; design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-number">09</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.3</div>
+                            <div class="entry-title">Web &amp; Networks</div>
+                            <div class="entry-meta">
+                                <span class="status status-review"><i class="fas fa-circle"></i> Review</span>
+                                <span>·</span>
+                                <span>HTML · CSS · JS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-number">10</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.4</div>
+                            <div class="entry-title">Programming Logic</div>
+                            <div class="entry-meta">
+                                <span class="status status-ready"><i class="fas fa-circle"></i> Ready</span>
+                                <span>·</span>
+                                <span>Python &amp; problem-solving</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-number">11</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.5</div>
+                            <div class="entry-title">Data &amp; Society</div>
+                            <div class="entry-meta">
+                                <span class="status status-draft"><i class="fas fa-circle"></i> Draft</span>
+                                <span>·</span>
+                                <span>Ethics of big data</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-number">12</div>
+                        <div class="entry-content">
+                            <div class="entry-code">M.6</div>
+                            <div class="entry-title">Emerging Technologies</div>
+                            <div class="entry-meta">
+                                <span class="status status-ready"><i class="fas fa-circle"></i> Ready</span>
+                                <span>·</span>
+                                <span>AI · ethics · future</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pull-quote">
+                    <p>“Code is not neutral. Every line carries a choice — and every choice carries a consequence.”</p>
+                    <div class="attribution">— Course Philosophy</div>
+                </div>
             </div>
+
         </div>
 
-        <!-- extra subtle note -->
-        <div style="margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.8rem 2rem; justify-content: center; border-top: 1px solid #232d42; padding-top: 1.2rem; font-size: 0.85rem; color: #93accf;">
-            <span><i class="fas fa-chevron-right" style="color: #5b7fb0; margin-right: 0.3rem;"></i> Semester 1 · Semester 2</span>
-            <span><i class="fas fa-chevron-right" style="color: #5b7fb0; margin-right: 0.3rem;"></i> Mathayom 1 – 6</span>
-            <span><i class="fas fa-chevron-right" style="color: #5b7fb0; margin-right: 0.3rem;"></i> ethics · coding · digital literacy</span>
-            <span><i class="fas fa-chevron-right" style="color: #5b7fb0; margin-right: 0.3rem;"></i> 12 level cards</span>
-        </div>
+        <footer class="magazine-footer">
+            <div class="footer-nav">
+                <span><i class="fas fa-chevron-right"></i> Semester 1 · Semester 2</span>
+                <span><i class="fas fa-chevron-right"></i> Mathayom 1 – 6</span>
+                <span><i class="fas fa-chevron-right"></i> Ethics &amp; Coding</span>
+            </div>
+            <div class="footer-credits">
+                <i class="fab fa-github"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-x-twitter"></i>
+                <i class="far fa-envelope"></i>
+            </div>
+        </footer>
+
     </div>
 
-    <!-- ========== JAVASCRIPT: DIGITAL CLOCK ========== -->
     <script>
         function updateClock() {
             const now = new Date();
-
-            // Get hours, minutes, seconds
             let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-
-            // Determine AM/PM
             const ampm = hours >= 12 ? 'PM' : 'AM';
-
-            // Convert to 12-hour format
             hours = hours % 12;
-            hours = hours ? hours : 12; // 0 becomes 12
+            hours = hours ? hours : 12;
             const hoursStr = String(hours).padStart(2, '0');
-
-            // Update clock display
             document.getElementById('hours').textContent = hoursStr;
             document.getElementById('minutes').textContent = minutes;
             document.getElementById('seconds').textContent = seconds;
             document.getElementById('ampm').textContent = ampm;
-
-            // Update date
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const dateStr = now.toLocaleDateString('en-US', options);
-            document.getElementById('dateText').textContent = dateStr;
+            document.getElementById('dateText').textContent = now.toLocaleDateString('en-US', options);
         }
-
-        // Update clock immediately
         updateClock();
-
-        // Update every second
         setInterval(updateClock, 1000);
     </script>
 </body>
